@@ -1,0 +1,2 @@
+theia@theia-tanmaysurush:/home/project/xrwvm-fullstack_developer_capstone$ curl http://localhost:8000/djangoapp/locurl http://localhost:8000/djangoapp/logout
+{"userName": ""}

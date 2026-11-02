@@ -1,0 +1,2 @@
+theia@theia-tanmaysurush:/home/project/xrwvm-fullstack_developer_capstone$ curl -X POST http://localhost:8000/djangoapp/login -H "Content-Type: application/json" -d '{"userName":"root","password":"YOUR_PASSWORD"}'
+{"userName": "root"}
