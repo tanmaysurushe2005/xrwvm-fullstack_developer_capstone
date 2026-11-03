@@ -30,6 +30,7 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
+
 def logout_request(request):
     logout(request)
     data = {"userName": ""}
@@ -74,13 +75,14 @@ def get_cars(request):
                      "CarMake": car_model.car_make.name})
     return JsonResponse({"CarModels": cars})
 
+
 def get_dealerships(request, state="All"):
-       if state == "All":
-           endpoint = "/fetchDealers"
-       else:
-           endpoint = "/fetchDealers/" + state
-       dealerships = get_request(endpoint)
-       return JsonResponse({"status": 200, "dealers": dealerships})
+    if state == "All":
+        endpoint = "/fetchDealers"
+    else:
+        endpoint = "/fetchDealers/" + state
+    dealerships = get_request(endpoint)
+    return JsonResponse({"status": 200, "dealers": dealerships})
 
 
 def get_dealer_reviews(request, dealer_id):
