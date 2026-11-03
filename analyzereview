@@ -1,0 +1,2 @@
+$ curl "https://sentianalyzer.2gppv4lajwxq.us-south.codeengine.appdomain.cloud/analyze/Fantastic%20services"
+{"sentiment": "positive"}
