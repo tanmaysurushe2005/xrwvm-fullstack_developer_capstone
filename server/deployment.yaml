@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: dealership
+  name: dealership
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: dealership
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: dealership
+    spec:
+      containers:
+      - image: us.icr.io/sn-labs-tanmaysurush/dealership:latest
+        imagePullPolicy: Always
+        name: dealership
+        env:
+           - name: backend_url
+             value: "https://tanmaysurush-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+           - name: sentiment_analyzer_url
+             value: "https://sentianalyzer.2gppv4lajwxq.us-south.codeengine.appdomain.cloud/"
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+      restartPolicy: Always
